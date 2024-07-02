@@ -7,6 +7,7 @@
 
 // Commands
 #include "commands/embed.h"
+#include "commands/author.h"
 //
 
 std::string envfile() {
@@ -26,6 +27,7 @@ int main() {
   
   CommandRegistry cmd_reg;
   cmd_reg.register_command("embed", handle_embed_command);
+  cmd_reg.register_command("author", handle_author_command);
 
   bot.on_slashcommand([&cmd_reg](const dpp::slashcommand_t& event){
     cmd_reg.handle_command(event);
@@ -37,6 +39,10 @@ int main() {
     if (dpp::run_once<struct register_bot_commands>()) {
       bot.guild_command_create(
         dpp::slashcommand("embed", "eijfwia", bot.me.id),
+        guild_id
+      );
+      bot.guild_command_create(
+        dpp::slashcommand("author", "shows bot author description", bot.me.id),
         guild_id
       );
     }
