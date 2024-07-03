@@ -12,7 +12,7 @@
 #include "headers/kick.h"
 //
 
-std::string envfile() {
+std::pair<std::string, std::string> envfile() {
   std::string envFilePath = "../.env";
   std::unordered_map<std::string, std::string> env = parseEnvFile(envFilePath);
 
@@ -21,13 +21,16 @@ std::string envfile() {
   }
 
   std::string bot_token = env["DISCORD_TOKEN"];
+  std::string guild_id = env["GUILD_ID"];
 
-  return bot_token;
+  return std::make_pair(bot_token, guild_id);
 }
 
-const std::string BOT_TOKEN = envfile();
+const std::pair<std::string, std::string> result = envfile();
 
 int main() {
+  std::string BOT_TOKEN = result.first;
+  std::string GUILD_ID = result.second;
   dpp::cluster bot(BOT_TOKEN);
   bot.on_log(dpp::utility::cout_logger());
   
@@ -45,8 +48,8 @@ int main() {
       cmd_reg.handle_command(event);
   });
 
-  bot.on_ready([&bot](const dpp::ready_t& event) {
-    dpp::snowflake guild_id = 1070169312284917860;
+  bot.on_ready([&bot, GUILD_ID](const dpp::ready_t& event) {
+    dpp::snowflake guild_id = GUILD_ID;
     bot.global_bulk_command_delete();
     log_message("INFO", "Serenity successfully logged in.");
 
