@@ -1,13 +1,5 @@
 <a id="readme-top"></a>
 
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-
 <br />
 <div align="center">
   <a href="https://github.com/auth-xyz/serenitygen">
@@ -17,7 +9,6 @@
 <h3 align="center">project_title</h3>
 
   <p align="center">
-    Serenity is a Discord bot written in C++ (Using (DPP)[https://dpp.dev]) 
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
