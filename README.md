@@ -5,9 +5,6 @@
   <a href="https://github.com/auth-xyz/serenitygen">
     <img src="https://auth-xyz.github.io/repositories/serenitygen/logo.png" alt="Logo" width="80" height="80">
   </a>
-
-<h3 align="center">Serenity</h3>
-
   <p align="center">
     <br />
     <br />
@@ -17,13 +14,10 @@
   </p>
 </div>
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Serenity][product-screenshot]](https://auth-xyz.github.io/repositories/serenitygen/banner.png)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -33,6 +27,7 @@ Firstly, create a [discord](https://discord.dev) application aswell as a bot, fo
 ### Prerequisites
 
 [D++](https://dpp.dev/installing.html)
+
 [A working brain](https://en.wikipedia.org/wiki/Brain)
 
 * bash
