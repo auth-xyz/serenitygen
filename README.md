@@ -1,8 +1,6 @@
 <a id="readme-top"></a>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
-
 [![Serenity][product-screenshot]](https://auth-xyz.github.io/repositories/serenitygen/banner.png)
 
 <!-- GETTING STARTED -->
