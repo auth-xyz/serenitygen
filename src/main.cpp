@@ -8,6 +8,7 @@
 // Commands
 #include "headers/embed.h"
 #include "headers/ban.h"
+#include "headers/kick.h"
 //
 
 std::string envfile() {
