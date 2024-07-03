@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/auth-xyz/serenitygen">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://auth-xyz.github.io/repositories/serenitygen/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Serenity</h3>
