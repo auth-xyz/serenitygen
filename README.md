@@ -54,7 +54,7 @@ Firstly, create a [discord](https://discord.dev) application aswell as a bot, fo
 - [ ] Improved error handling 
 - [ ] Improved env library (maybe i'll publish it?)
 - [ ] Other administration commands (mute/timeout and others)
-    - [ ] Basic admin commands (ban/kick)
+- [x] Basic admin commands (ban/kick)
 
 See the [open issues](https://github.com/auth-xyz/serenitygen/issues) for a full list of proposed features (and known issues).
 
@@ -81,7 +81,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the Apache License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
