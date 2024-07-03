@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <dpp/dpp.h>
 
+#include "headers/logger.h"
 #include "headers/env_reader.h"
 #include "headers/command_registry.h"
 
@@ -14,6 +15,10 @@
 std::string envfile() {
   std::string envFilePath = "../.env";
   std::unordered_map<std::string, std::string> env = parseEnvFile(envFilePath);
+
+  if (env.find("DISCORD_TOKEN") == env.end()) {
+      throw std::runtime_error("DISCORD_TOKEN not found in .env");
+  }
 
   std::string bot_token = env["DISCORD_TOKEN"];
 
@@ -32,12 +37,18 @@ int main() {
   cmd_reg.register_command("kick", handle_kick_command);
 
   bot.on_slashcommand([&cmd_reg](const dpp::slashcommand_t& event){
-    cmd_reg.handle_command(event);
+      std::string command_name = event.command.get_command_name();
+      std::string username = event.command.usr.username;
+
+      log_message(username, "used " + command_name + " command");
+
+      cmd_reg.handle_command(event);
   });
 
-  bot.on_ready([&bot](const dpp::ready_t& event){
+  bot.on_ready([&bot](const dpp::ready_t& event) {
     dpp::snowflake guild_id = 1070169312284917860;
     bot.global_bulk_command_delete();
+    log_message("INFO", "Serenity successfully logged in.");
 
     if (dpp::run_once<struct register_bot_commands>()) {
       bot.guild_command_create(

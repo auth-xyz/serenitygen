@@ -45,8 +45,6 @@ void handle_kick_command(const dpp::slashcommand_t& event) {
         return;
       }
 
-      const dpp::guild& guild = std::get<dpp::guild>(guild_callback.value);
-
       // Kick the user
       bot->guild_member_kick(user_id, reason, [event, bot, mod_embed](const dpp::confirmation_callback_t& kick_callback) {
         if (kick_callback.is_error()) {
