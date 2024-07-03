@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream> // Include <iostream> for std::cerr
 #include <unordered_map>
-#include "env_reader.h"
+
+#include "../headers/env_reader.h"
 
 std::unordered_map<std::string, std::string> parseEnvFile(const std::string& filename) {
     std::unordered_map<std::string, std::string> envMap;

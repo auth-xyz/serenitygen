@@ -1,4 +1,4 @@
-#include "kick.h"
+#include "../headers/kick.h"
 #include <dpp/dpp.h>
 
 void handle_kick_command(const dpp::slashcommand_t& event) {

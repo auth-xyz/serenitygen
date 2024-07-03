@@ -2,12 +2,12 @@
 #include <unordered_map>
 #include <dpp/dpp.h>
 
-#include "libs/env_reader.h"
-#include "libs/command_registry.h"
+#include "headers/env_reader.h"
+#include "headers/command_registry.h"
 
 // Commands
-#include "commands/embed.h"
-#include "commands/ban.h"
+#include "headers/embed.h"
+#include "headers/ban.h"
 //
 
 std::string envfile() {
@@ -28,6 +28,7 @@ int main() {
   CommandRegistry cmd_reg;
   cmd_reg.register_command("embed", handle_embed_command);
   cmd_reg.register_command("ban", handle_ban_command);
+  cmd_reg.register_command("kick", handle_kick_command);
 
   bot.on_slashcommand([&cmd_reg](const dpp::slashcommand_t& event){
     cmd_reg.handle_command(event);
