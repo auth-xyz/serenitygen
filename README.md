@@ -6,7 +6,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Serenity</h3>
 
   <p align="center">
     <br />
@@ -18,54 +18,22 @@
 </div>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Serenity][product-screenshot]](https://auth-xyz.github.io/repositories/serenitygen)
+[![Serenity][product-screenshot]](https://auth-xyz.github.io/repositories/serenitygen/banner.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Built With
-
-* [![C++][CPP]][CPP-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Firstly, create a (discord)[https://discord.dev] application aswell as a bot, for said application
+Firstly, create a [discord](https://discord.dev) application aswell as a bot, for said application
 
 ### Prerequisites
 
-(D++)[https://dpp.dev/installing.html]
+[D++](https://dpp.dev/installing.html)
+[A working brain](https://en.wikipedia.org/wiki/Brain)
 
 * bash
   ```sh
