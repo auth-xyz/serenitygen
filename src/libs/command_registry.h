@@ -1,4 +1,3 @@
-// CommandRegistry.h
 #ifndef COMMANDREGISTRY_H
 #define COMMANDREGISTRY_H
 
@@ -17,5 +16,5 @@ private:
     std::unordered_map<std::string, CommandHandler> commands;
 };
 
-#endif // COMMANDREGISTRY_H
+#endif
 

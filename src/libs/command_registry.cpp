@@ -1,4 +1,3 @@
-// CommandRegistry.cpp
 #include "command_registry.h"
 
 void CommandRegistry::register_command(const std::string& name, const CommandHandler& handler) {

@@ -10,7 +10,7 @@ std::unordered_map<std::string, std::string> parseEnvFile(const std::string& fil
     std::ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cerr << "Error opening file: " << filename << std::endl; // Corrected line
+        std::cerr << "Error opening file: " << filename << std::endl; 
         return envMap;
     }
 
