@@ -17,7 +17,7 @@ std::pair<std::string, std::string> envfile() {
   std::unordered_map<std::string, std::string> env = parseEnvFile(envFilePath);
 
   if (env.find("DISCORD_TOKEN") == env.end()) {
-      throw std::runtime_error("DISCORD_TOKEN not found in .env");
+    throw std::runtime_error("DISCORD_TOKEN not found in .env");
   }
 
   std::string bot_token = env["DISCORD_TOKEN"];
@@ -33,19 +33,19 @@ int main() {
   std::string GUILD_ID = result.second;
   dpp::cluster bot(BOT_TOKEN);
   bot.on_log(dpp::utility::cout_logger());
-  
+
   CommandRegistry cmd_reg;
   cmd_reg.register_command("embed", handle_embed_command);
   cmd_reg.register_command("ban", handle_ban_command);
   cmd_reg.register_command("kick", handle_kick_command);
 
   bot.on_slashcommand([&cmd_reg](const dpp::slashcommand_t& event){
-      std::string command_name = event.command.get_command_name();
-      std::string username = event.command.usr.username;
+    std::string command_name = event.command.get_command_name();
+    std::string username = event.command.usr.username;
 
-      log_message(username, "used " + command_name + " command");
+    log_message(username, "used " + command_name + " command");
 
-      cmd_reg.handle_command(event);
+    cmd_reg.handle_command(event);
   });
 
   bot.on_ready([&bot, GUILD_ID](const dpp::ready_t& event) {
@@ -55,21 +55,21 @@ int main() {
 
     if (dpp::run_once<struct register_bot_commands>()) {
       bot.guild_command_create(
-            dpp::slashcommand("embed", "test command", bot.me.id),
-            guild_id
-          );
+        dpp::slashcommand("embed", "test command", bot.me.id),
+        guild_id
+      );
       bot.guild_command_create(
-          dpp::slashcommand("ban", "Bans specified user", bot.me.id)
-             .add_option(dpp::command_option(dpp::co_user, "user", "user to ban", true))
-             .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
-              guild_id
-          );
+        dpp::slashcommand("ban", "Bans specified user", bot.me.id)
+        .add_option(dpp::command_option(dpp::co_user, "user", "user to ban", true))
+        .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
+        guild_id
+      );
       bot.guild_command_create(
-          dpp::slashcommand("kick", "Kicks a specified user", bot.me.id)
-              .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true))
-              .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
-               guild_id
-          );
+        dpp::slashcommand("kick", "Kicks a specified user", bot.me.id)
+        .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true))
+        .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
+        guild_id
+      );
     }
 
   });
