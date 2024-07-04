@@ -57,3 +57,8 @@ Yeah, that's literally it. You just run ./build.sh and it *should* build.
 
 Feel free to contribute in any way you'd like, just make a PR.
 If you have any questions on how to use the source code/edit the code dm me on Discord <actually.auth>
+
+
+
+
+[product-screenshot]: https://auth-xyz.github.io/repositories/serenitygen/banner.png
