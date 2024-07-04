@@ -69,4 +69,4 @@ If you have any questions on how to use the source code/edit the code dm me on D
 
 
 
-[product-screenshot]: https://auth-xyz.github.io/repositories/serenitygen/banner.png
+[product-screenshot]: https://github.com/auth-xyz/auth-xyz.github.io/blob/main/repositories/serenitygen/banner.png?raw=true
