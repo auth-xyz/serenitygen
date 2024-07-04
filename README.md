@@ -1,7 +1,7 @@
 <a id="readme-top"></a>
 
 <!-- ABOUT THE PROJECT -->
-[![Serenity][product-screenshot]]
+![Serenity][product-screenshot]
 
 ------
 
