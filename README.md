@@ -46,10 +46,18 @@ I gotta note, because of my laziness the executable will expect the `.env` file 
 So you must run the built binary from the `dist/` directory.
 
 ```bash
-./build.sh
+make
 ```
 
-Yeah, that's literally it. You just run ./build.sh and it *should* build.
+Yeah, that's literally it. You just run `make` and it *should* build.
+And if there's any new update on the code and you'd like to build it again:
+
+```bash
+git pull # to make sure you have the most recent changes
+make clean
+
+make # to rebuild
+```
 
 ------
 
