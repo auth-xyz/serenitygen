@@ -1,6 +1,7 @@
 #include "../headers/command_registry.h"
 
 void CommandRegistry::register_command(const std::string& name, const CommandHandler& handler) {
+improved_cmdreg
     auto it = commands.find(name);
     if (it != commands.end()) {
         // Command with the same name already exists
@@ -16,5 +17,6 @@ void CommandRegistry::handle_command(const dpp::slashcommand_t& event) const {
     } else {
         event.reply("Unknown command!");
     }
-}
 
+  commands[name] = handler;
+}
