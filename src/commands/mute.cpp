@@ -3,6 +3,7 @@
 #include <chrono>
 
 void handle_mute_command(const dpp::slashcommand_t& event) {
+  event.thinking();
   // Check if the 'user' and 'duration' parameters exist
   if (event.get_parameter("user").index() == std::variant_npos || event.get_parameter("duration").index() == std::variant_npos) {
     event.reply("Please mention a user to mute and specify the duration.");
@@ -43,7 +44,7 @@ void handle_mute_command(const dpp::slashcommand_t& event) {
     // Perform the mute operation (timeout)
     bot->guild_member_timeout(event.command.guild_id, user_id, timeout_end, [event, bot, mod_embed](const dpp::confirmation_callback_t& timeout_callback) {
       if (timeout_callback.is_error()) {
-        event.reply("Failed to mute the user.");
+        event.edit_response("Failed to mute the user.");
       } else {
         // Send embed to moderator channel
         dpp::message mod_message;
@@ -51,10 +52,10 @@ void handle_mute_command(const dpp::slashcommand_t& event) {
         mod_message.add_embed(mod_embed);
         bot->message_create(mod_message, [event](const dpp::confirmation_callback_t& mod_callback) {
           if (mod_callback.is_error()) {
-            event.reply("Failed to send mod message.");
+            event.edit_response("Failed to send mod message.");
           } else {
             // Reply to the user who initiated the command
-            event.reply("User has been muted.");
+            event.edit_response("User has been muted.");
           }
         });
       }
