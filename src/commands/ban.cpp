@@ -23,7 +23,7 @@ void handle_ban_command(const dpp::slashcommand_t& event) {
   dpp::cluster* bot = event.from->creator;
 
   // Fetch the target user's details
-  bot->user_get(user_id, [&event, bot, user_id, reason](const dpp::confirmation_callback_t& callback) {
+  bot->user_get(user_id, [event, bot, user_id, reason](const dpp::confirmation_callback_t& callback) {
     if (callback.is_error()) {
       event.reply("Failed to retrieve user details.");
       return;
