@@ -11,6 +11,7 @@
 #include "headers/ban.h"
 #include "headers/kick.h"
 #include "headers/unban.h"
+#include "headers/mute.h"
 //
 
 std::pair<std::string, std::string> envfile() {
@@ -41,6 +42,7 @@ int main() {
   cmd_reg.register_command("ban", handle_ban_command);
   cmd_reg.register_command("unban", handle_unban_command);
   cmd_reg.register_command("kick", handle_kick_command);
+  cmd_reg.register_command("mute", handle_mute_command);
 
   bot.on_slashcommand([&cmd_reg](const dpp::slashcommand_t& event){
     std::string command_name = event.command.get_command_name();
@@ -77,7 +79,13 @@ int main() {
           dpp::slashcommand("unban", "Unbans user", bot.me.id)
           .add_option(dpp::command_option(dpp::co_user, "user", "user to unban", true)),
           guild_id
-        );
+      );
+      bot.guild_command_create(
+          dpp::slashcommand("mute", "mutes a user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to mute", true))
+          .add_option(dpp::command_option(dpp::co_integer, "duration", "<minutes only>", true)),
+          guild_id
+      );
     }
 
   });
