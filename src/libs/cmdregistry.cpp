@@ -16,6 +16,4 @@ void CommandRegistry::handle_command(const dpp::slashcommand_t& event) const {
     } else {
         event.reply("Unknown command!");
     }
-
-  commands[name] = handler;
 }
