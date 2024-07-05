@@ -27,4 +27,3 @@ clean:
 	rm -f $(BIN_DIR)/$(EXECUTABLE)
 
 .PHONY: all clean
-
