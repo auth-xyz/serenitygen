@@ -15,15 +15,16 @@ CPP_FILES = $(shell find $(SRC_DIR) -name "*.cpp")
 all: $(BIN_DIR)/$(EXECUTABLE)
 
 $(BIN_DIR)/$(EXECUTABLE): $(CPP_FILES)
-    @mkdir -p $(BIN_DIR)
-    $(CXX) $(CXXFLAGS) $(CPP_FILES) -o $@ $(LDFLAGS)
-    @if [ $$? -eq 0 ]; then \
-        echo "Build successful! Executable created at $(BIN_DIR)/$(EXECUTABLE)"; \
-    else \
-        echo "Build failed!"; \
-    fi
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $(CPP_FILES) -o $@ $(LDFLAGS)
+	@if [ $$? -eq 0 ]; then \
+		echo "Build successful! Executable created at $(BIN_DIR)/$(EXECUTABLE)"; \
+	else \
+		echo "Build failed!"; \
+	fi
 
 clean:
-    rm -f $(BIN_DIR)/$(EXECUTABLE)
+	rm -f $(BIN_DIR)/$(EXECUTABLE)
 
 .PHONY: all clean
+
