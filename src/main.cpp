@@ -10,6 +10,7 @@
 #include "headers/embed.h"
 #include "headers/ban.h"
 #include "headers/kick.h"
+#include "headers/unban.h"
 //
 
 std::pair<std::string, std::string> envfile() {
@@ -36,7 +37,9 @@ int main() {
 
   CommandRegistry cmd_reg;
   cmd_reg.register_command("embed", handle_embed_command);
+
   cmd_reg.register_command("ban", handle_ban_command);
+  cmd_reg.register_command("unban", handle_unban_command);
   cmd_reg.register_command("kick", handle_kick_command);
 
   bot.on_slashcommand([&cmd_reg](const dpp::slashcommand_t& event){
@@ -49,8 +52,9 @@ int main() {
   });
 
   bot.on_ready([&bot, GUILD_ID](const dpp::ready_t& event) {
+    if (dpp::run_once<struct clear_bot_commands>()) { bot.global_bulk_command_delete(); }
+
     dpp::snowflake guild_id = GUILD_ID;
-    bot.global_bulk_command_delete();
     log_message("INFO", "Serenity successfully logged in.");
 
     if (dpp::run_once<struct register_bot_commands>()) {
@@ -70,6 +74,11 @@ int main() {
         .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
         guild_id
       );
+      bot.guild_command_create(
+          dpp::slashcommand("unban", "Unbans user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to unban", true)),
+          guild_id
+        );
     }
 
   });
