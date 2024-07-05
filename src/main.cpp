@@ -70,8 +70,7 @@ int main() {
       );
       bot.guild_command_create(
         dpp::slashcommand("kick", "Kicks a specified user", bot.me.id)
-        .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true))
-        .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
+        .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true)),
         guild_id
       );
       bot.guild_command_create(
