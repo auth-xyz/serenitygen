@@ -62,37 +62,23 @@ int main() {
     log_message("INFO", "Serenity successfully logged in.");
 
     if (dpp::run_once<struct register_bot_commands>()) {
-      bot.guild_command_create(
+      std::vector<dpp::slashcommand> commands = {
         dpp::slashcommand("embed", "test command", bot.me.id),
-        guild_id
-      );
-      bot.guild_command_create(
-        dpp::slashcommand("ban", "Bans specified user", bot.me.id)
-        .add_option(dpp::command_option(dpp::co_user, "user", "user to ban", true))
-        .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for your actions.", true)),
-        guild_id
-      );
-      bot.guild_command_create(
-        dpp::slashcommand("kick", "Kicks a specified user", bot.me.id)
-        .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true)),
-        guild_id
-      );
-      bot.guild_command_create(
-          dpp::slashcommand("unban", "Unbans user", bot.me.id)
-          .add_option(dpp::command_option(dpp::co_user, "user", "user to unban", true)),
-          guild_id
-      );
-      bot.guild_command_create(
-          dpp::slashcommand("mute", "mutes a user", bot.me.id)
-          .add_option(dpp::command_option(dpp::co_user, "user", "user to mute", true))
-          .add_option(dpp::command_option(dpp::co_integer, "duration", "<minutes only>", true)),
-          guild_id
-      );
-      bot.guild_command_create(
-          dpp::slashcommand("unmute", "unmutes a user", bot.me.id)
-          .add_option(dpp::command_option(dpp::co_user, "user", "user to mute", true)),
-          guild_id
-      );
+        dpp::slashcommand("ban", "Bans the provided user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to ban", true))
+          .add_option(dpp::command_option(dpp::co_string, "reason", "the reasoning for such actions", true)),
+        dpp::slashcommand("unban", "Unbans the provided user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to forgive", true)),
+        dpp::slashcommand("mute", "mutes the provided user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to shut up", true))
+          .add_option(dpp::command_option(dpp::co_integer, "duration", "duration in minutes", true)),
+        dpp::slashcommand("unmute", "unmutes the provided user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to unmute", true)),
+        dpp::slashcommand("kick", "kicks the provided user", bot.me.id)
+          .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true)),
+      };
+
+      bot.guild_bulk_command_create(commands, guild_id);
     }
 
   });
