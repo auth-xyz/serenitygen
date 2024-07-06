@@ -38,9 +38,9 @@ void handle_ban_command(const dpp::slashcommand_t& event) {
       std::string moderator_pfp = event.command.usr.get_avatar_url();
 
       // Create the embeds
-      dpp::embed mod_embed = EmbedUtils::create_moderator_embed("User Banned", "**Moderator:** " +event.command.usr.username , user_pfp);
-      mod_embed.add_field("User ID", std::to_string(user_id), true);
-      mod_embed.add_field("Reason", reason, false);
+      dpp::embed mod_embed = EmbedUtils::create_moderator_embed("User Banned", reason, user_pfp);
+      mod_embed.add_field("Moderator", event.command.usr.username, true);
+      mod_embed.add_field("User ID", std::to_string(user_id), false);
 
       dpp::embed public_embed = EmbedUtils::create_moderator_embed("User Banned", "dumb dumb got the ban treatment", user_pfp);
       public_embed.add_field("User", target_user.username);

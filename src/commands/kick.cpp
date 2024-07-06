@@ -29,8 +29,8 @@ void handle_kick_command(const dpp::slashcommand_t& event) {
     std::string moderator_pfp = event.command.usr.get_avatar_url();
 
     // Create embed for moderation message
-    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User Kicked", "goof ball got the kick treatment", 0xFFA500, user_pfp);
-    mod_embed.add_field("User", target_user.username);
+    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User " + target_user.username + " was Kicked", "goof ball got the kick treatment", 0xFFA500, user_pfp);
+    mod_embed.add_field("Moderator", event.command.usr.username);
 
     // Get guild ID from event context
     dpp::snowflake guild_id = event.command.guild_id;
