@@ -34,7 +34,7 @@ void handle_unban_command(const dpp::slashcommand_t& event) {
 
       // Send the embed to the moderator channel
       dpp::message mod_message;
-      mod_message.set_channel_id(1070569664599556146); // Private channel ID
+      mod_message.set_channel_id(1070176260891889725); // Private channel ID
       mod_message.add_embed(unban_embed);
       bot->message_create(mod_message);
 
