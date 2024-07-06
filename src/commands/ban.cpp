@@ -1,4 +1,6 @@
 #include "../headers/ban.h"
+#include "../headers/embed_utils.h"
+
 #include <dpp/dpp.h>
 
 void handle_ban_command(const dpp::slashcommand_t& event) {
@@ -36,21 +38,12 @@ void handle_ban_command(const dpp::slashcommand_t& event) {
       std::string moderator_pfp = event.command.usr.get_avatar_url();
 
       // Create the embeds
-      dpp::embed mod_embed;
-      mod_embed.set_title("User Banned")
-        .set_description("A user has been banned.")
-        .add_field("User ID", std::to_string(user_id), true)
-        .add_field("Reason", reason, false)
-        .set_thumbnail(moderator_pfp)
-        .set_footer(dpp::embed_footer().set_text("Serenity © - 2024"))
-        .set_color(0xFF0000);
+      dpp::embed mod_embed = EmbedUtils::create_moderator_embed("User Banned", "**Moderator:** " +event.command.usr.username , user_pfp);
+      mod_embed.add_field("User ID", std::to_string(user_id), true);
+      mod_embed.add_field("Reason", reason, false);
 
-      dpp::embed public_embed;
-      public_embed.set_title("User Banned")
-        .set_description("A user has been banned for violating the rules.")
-        .set_thumbnail(user_pfp)
-        .set_footer(dpp::embed_footer().set_text("Serenity © - 2024"))
-        .set_color(0xFF0000);
+      dpp::embed public_embed = EmbedUtils::create_moderator_embed("User Banned", "dumb dumb got the ban treatment", user_pfp);
+      public_embed.add_field("User", target_user.username);
 
       // Ban the user
       bot->guild_ban_add(event.command.guild_id, user_id, 0, [event, bot, mod_embed, public_embed](const dpp::confirmation_callback_t& ban_callback) {
