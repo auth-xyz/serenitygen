@@ -29,8 +29,8 @@ void handle_unban_command(const dpp::slashcommand_t& event) {
       // Create the embed
       std::string moderator_pfp = event.command.usr.get_avatar_url();
 
-      dpp::embed unban_embed = EmbedUtils::create_public_embed("User Unbanned", "A soul was freed from hell", moderator_pfp);
-      unban_embed.add_field("User ID", std::to_string(user_id), true);
+      dpp::embed unban_embed = EmbedUtils::create_public_embed("User " + std::to_string(user_id) + " was unbanned", "A soul was freed from hell", moderator_pfp);
+      unban_embed.add_field("Moderator", event.command.usr.username, true);
 
       // Send the embed to the moderator channel
       dpp::message mod_message;

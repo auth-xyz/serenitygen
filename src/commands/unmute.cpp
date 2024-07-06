@@ -31,8 +31,8 @@ void handle_unmute_command(const dpp::slashcommand_t& event) {
     std::string user_pfp = target_user.get_avatar_url();
     std::string moderator_pfp = event.command.usr.get_avatar_url();
 
-    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User Unmuted", "**Moderator:**" +event.command.usr.username, 0x00FF00,user_pfp);
-    mod_embed.add_field("User ID", std::to_string(user_id), true);
+    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User " + target_user.username + " was Unmuted", "his soul was spared", 0x00FF00,user_pfp);
+    mod_embed.add_field("Moderator", event.command.usr.username, true);
     
     bot->guild_member_timeout(event.command.guild_id, user_id, 0, [event, bot, mod_embed](const dpp::confirmation_callback_t& timeout_callback) {
       if (timeout_callback.is_error()) {

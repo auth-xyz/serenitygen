@@ -34,9 +34,9 @@ void handle_mute_command(const dpp::slashcommand_t& event) {
     std::string user_pfp = target_user.get_avatar_url();
     std::string moderator_pfp = event.command.usr.get_avatar_url();
 
-    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User Muted", "Goof got the :shh: treatment", 0xFFFF00, user_pfp);
-    mod_embed.add_field("User", target_user.username);
-    mod_embed.add_field("Duration", std::to_string(duration_minutes));
+    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User " + target_user.username + " was Muted", "Goof got the :shh: treatment", 0xFFFF00, user_pfp);
+    mod_embed.add_field("Moderator", event.command.usr.username, true);
+    mod_embed.add_field("Duration", std::to_string(duration_minutes) +" minute(s)", true);
 
     // Perform the mute operation (timeout)
     bot->guild_member_timeout(event.command.guild_id, user_id, timeout_end, [event, bot, mod_embed](const dpp::confirmation_callback_t& timeout_callback) {
