@@ -1,4 +1,4 @@
-#include "../headers/embed.h"
+#include "../headers/commands/embed.hpp"
 #include <iostream>
 
 void handle_embed_command(const dpp::slashcommand_t& event) {

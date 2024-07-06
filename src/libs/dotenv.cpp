@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <filesystem> // For checking if file exists
 
-#include "../headers/env_reader.h"
+#include "../headers/libraries/env_reader.hpp"
 
 // Function to parse a dotenv file and return the environment variables as a map
 std::unordered_map<std::string, std::string> parseEnvFile(const std::string& filename) {

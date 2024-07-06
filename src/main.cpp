@@ -2,17 +2,17 @@
 #include <unordered_map>
 #include <dpp/dpp.h>
 
-#include "headers/logger.h"
-#include "headers/env_reader.h"
-#include "headers/command_registry.h"
+#include "headers/libraries/logger.h"
+#include "headers/libraries/env_reader.h"
+#include "headers/libraries/command_registry.h"
 
 // Commands
-#include "headers/embed.h"
-#include "headers/ban.h"
-#include "headers/kick.h"
-#include "headers/unban.h"
-#include "headers/mute.h"
-#include "headers/unmute.h"
+#include "headers/commands/embed.h"
+#include "headers/commands/ban.h"
+#include "headers/commands/kick.h"
+#include "headers/commands/unban.h"
+#include "headers/commands/mute.h"
+#include "headers/commands/unmute.h"
 //
 
 std::pair<std::string, std::string> envfile() {

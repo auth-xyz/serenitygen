@@ -1,4 +1,4 @@
-#include "../headers/command_registry.h"
+#include "../headers/libraries/command_registry.hpp"
 
 void CommandRegistry::register_command(const std::string& name, const CommandHandler& handler) {
     auto it = commands.find(name);

@@ -1,4 +1,4 @@
-#include "../headers/embed_utils.h"
+#include "../headers/libraries/embed_utils.hpp"
 
 dpp::embed EmbedUtils::create_basic_embed(const std::string& title, const std::string& description, uint32_t color, const std::string& user_avatar_url) {
     return dpp::embed()

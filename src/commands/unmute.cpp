@@ -1,6 +1,8 @@
-#include "../headers/unmute.h"
 #include <dpp/dpp.h>
 #include <chrono>
+
+#include "../headers/commands/unmute.hpp"
+#include "../headers/libraries/embed_utils.hpp"
 
 void handle_unmute_command(const dpp::slashcommand_t& event) {
   // Acknowledge the interaction to avoid "Application did not respond" error
@@ -29,15 +31,9 @@ void handle_unmute_command(const dpp::slashcommand_t& event) {
     std::string user_pfp = target_user.get_avatar_url();
     std::string moderator_pfp = event.command.usr.get_avatar_url();
 
-    dpp::embed mod_embed;
-    mod_embed.set_title("User Unmuted")
-      .set_description("A user has been unmuted.")
-      .add_field("User ID", std::to_string(user_id), true)
-      .set_thumbnail(moderator_pfp)
-      .set_footer(dpp::embed_footer().set_text("Serenity © - 2024"))
-      .set_color(0x00FF00); // Green color for unmute
-
-    // Perform the unmute operation (remove timeout)
+    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User Unmuted", "**Moderator:**" +event.command.usr.username, 0x00FF00,user_pfp);
+    mod_embed.add_field("User ID", std::to_string(user_id), true);
+    
     bot->guild_member_timeout(event.command.guild_id, user_id, 0, [event, bot, mod_embed](const dpp::confirmation_callback_t& timeout_callback) {
       if (timeout_callback.is_error()) {
         event.edit_response("Failed to unmute the user.");
