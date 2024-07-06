@@ -1,5 +1,5 @@
-#include "../headers/mute.h"
-#include "../headers/embed_utils.h"
+#include "../headers/commands/mute.hpp"
+#include "../headers/libraries/embed_utils.hpp"
 
 #include <dpp/dpp.h>
 #include <chrono>
