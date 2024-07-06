@@ -1,4 +1,6 @@
 #include "../headers/kick.h"
+#include "../headers/embed_utils.h"
+
 #include <dpp/dpp.h>
 
 void handle_kick_command(const dpp::slashcommand_t& event) {
@@ -27,13 +29,8 @@ void handle_kick_command(const dpp::slashcommand_t& event) {
     std::string moderator_pfp = event.command.usr.get_avatar_url();
 
     // Create embed for moderation message
-    dpp::embed mod_embed;
-    mod_embed.set_title("User Kicked")
-      .set_description("A user has been kicked.")
-      .add_field("User ID", std::to_string(user_id), true)
-      .set_thumbnail(moderator_pfp)
-      .set_footer(dpp::embed_footer().set_text("Serenity © - 2024"))
-      .set_color(0xFFA500); // Orange color for kick
+    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User Kicked", "goof ball got the kick treatment", 0xFFA500, user_pfp);
+    mod_embed.add_field("User", target_user.username);
 
     // Get guild ID from event context
     dpp::snowflake guild_id = event.command.guild_id;

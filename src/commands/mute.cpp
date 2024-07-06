@@ -1,4 +1,6 @@
 #include "../headers/mute.h"
+#include "../headers/embed_utils.h"
+
 #include <dpp/dpp.h>
 #include <chrono>
 
@@ -32,14 +34,9 @@ void handle_mute_command(const dpp::slashcommand_t& event) {
     std::string user_pfp = target_user.get_avatar_url();
     std::string moderator_pfp = event.command.usr.get_avatar_url();
 
-    dpp::embed mod_embed;
-    mod_embed.set_title("User Muted")
-      .set_description("A user has been muted.")
-      .add_field("User ID", std::to_string(user_id), true)
-      .add_field("Duration", std::to_string(duration_minutes) + " minutes", false)
-      .set_thumbnail(moderator_pfp)
-      .set_footer(dpp::embed_footer().set_text("Serenity © - 2024"))
-      .set_color(0xFFFF00); // Yellow color for mute
+    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User Muted", "Goof got the :shh: treatment", 0xFFFF00, user_pfp);
+    mod_embed.add_field("User", target_user.username);
+    mod_embed.add_field("Duration", std::to_string(duration_minutes));
 
     // Perform the mute operation (timeout)
     bot->guild_member_timeout(event.command.guild_id, user_id, timeout_end, [event, bot, mod_embed](const dpp::confirmation_callback_t& timeout_callback) {

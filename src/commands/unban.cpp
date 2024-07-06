@@ -1,4 +1,6 @@
 #include "../headers/unban.h"
+#include "../headers/embed_utils.h"
+
 #include <dpp/dpp.h>
 
 void handle_unban_command(const dpp::slashcommand_t& event) {
@@ -25,12 +27,10 @@ void handle_unban_command(const dpp::slashcommand_t& event) {
       event.reply("Failed to unban the user.");
     } else {
       // Create the embed
-      dpp::embed unban_embed;
-      unban_embed.set_title("User Unbanned")
-        .set_description("A user has been unbanned.")
-        .add_field("User ID", std::to_string(user_id), true)
-        .set_footer(dpp::embed_footer().set_text("Serenity © - 2024"))
-        .set_color(0x00FF00); // Green color for success
+      std::string moderator_pfp = event.command.usr.get_avatar_url();
+
+      dpp::embed unban_embed = EmbedUtils::create_public_embed("User Unbanned", "A soul was freed from hell", moderator_pfp);
+      unban_embed.add_field("User ID", std::to_string(user_id), true);
 
       // Send the embed to the moderator channel
       dpp::message mod_message;
