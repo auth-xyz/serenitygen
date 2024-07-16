@@ -6,7 +6,7 @@ EXECUTABLE = discord_bot
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wno-unused-parameter -DDPP_CORO
+CXXFLAGS = -std=c++20 -Wall -Wextra -Wno-unused-parameter -DDPP_CORO
 LDFLAGS = -ldpp -lpthread
 
 # Find all .cpp files

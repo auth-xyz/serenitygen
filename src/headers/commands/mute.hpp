@@ -1,8 +1,9 @@
-#ifndef MUTE_H
-#define MUTE_H
+#ifndef MUTE_HPP
+#define MUTE_HPP
 
 #include <dpp/dpp.h>
+#include <chrono>
 
-void handle_mute_command(const dpp::slashcommand_t& event);
+dpp::task<void> handle_mute_command(const dpp::slashcommand_t& event);
 
-#endif // MUTE_H
+#endif // MUTE_HPP
