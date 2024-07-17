@@ -1,10 +1,9 @@
-// commands/embed.h
-#ifndef EMBED_H
-#define EMBED_H
+#ifndef EMBED_HPP
+#define EMBED_HPP
 
 #include <dpp/dpp.h>
 
-void handle_embed_command(const dpp::slashcommand_t& event);
+dpp::task<void> handle_embed_command(const dpp::slashcommand_t& event);
 
 #endif // EMBED_H
 

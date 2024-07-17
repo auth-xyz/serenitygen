@@ -1,8 +1,8 @@
-#ifndef UNBAN_H
-#define UNBAN_H
+#ifndef UNBAN_HPP
+#define UNBAN_HPP
 
 #include <dpp/dpp.h>
 
-void handle_unban_command(const dpp::slashcommand_t& event);
+dpp::task<void> handle_unban_command(const dpp::slashcommand_t& event);
 
 #endif // UNBAN_H

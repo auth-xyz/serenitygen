@@ -53,6 +53,8 @@ int main() {
     log_message(username, "used " + command_name + " command");
 
     cmd_reg.handle_command(event);
+
+    co_return dpp::slashcommand_response_t();
   };
 
   bot.on_slashcommand(handle_slashcommand);
@@ -60,7 +62,7 @@ int main() {
   // Define coroutine for bot readiness
   auto handle_ready = [&bot, GUILD_ID](const dpp::ready_t& event){
     if (dpp::run_once<struct clear_bot_commands>()) {
-      bot.co_global_bulk_command_delete();
+      co_await bot.co_global_bulk_command_delete();
     }
 
     dpp::snowflake guild_id = GUILD_ID;
@@ -83,9 +85,10 @@ int main() {
           .add_option(dpp::command_option(dpp::co_user, "user", "user to kick", true)),
       };
 
-      bot.co_guild_bulk_command_create(commands, guild_id);
+      co_await bot.co_guild_bulk_command_create(commands, guild_id);
     }
 
+    co_return dpp::ready_t();
   };
 
   bot.on_ready(handle_ready);

@@ -1,8 +1,8 @@
-#ifndef KICK_H
-#define KICK_H
+#ifndef KICK_HPP
+#define KICK_HPP
 
 #include <dpp/dpp.h>
 
-void handle_kick_command(const dpp::slashcommand_t& event);
+dpp::task<void> handle_kick_command(const dpp::slashcommand_t& event);
 
 #endif 

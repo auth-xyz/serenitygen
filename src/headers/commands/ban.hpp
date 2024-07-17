@@ -1,8 +1,8 @@
-#ifndef BAN_H
-#define BAN_H
+#ifndef BAN_HPP
+#define BAN_HPP
 
 #include <dpp/dpp.h>
 
-void handle_ban_command(const dpp::slashcommand_t& event);
+dpp::task<void> handle_ban_command(const dpp::slashcommand_t& event);
 
 #endif 

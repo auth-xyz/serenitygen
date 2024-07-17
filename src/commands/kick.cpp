@@ -3,61 +3,56 @@
 
 #include <dpp/dpp.h>
 
-void handle_kick_command(const dpp::slashcommand_t& event) {
-  // Check if the parameter 'user' exists
-  if (event.get_parameter("user").index() == std::variant_npos) {
-    event.reply("Please mention a user to kick.");
-    return;
-  }
+#include "../headers/commands/kick.hpp"
+#include "../headers/libraries/embed_utils.hpp"
 
-  // Extract user ID and reason from parameters
-  dpp::snowflake user_id = std::get<dpp::snowflake>(event.get_parameter("user"));
+#include <dpp/dpp.h>
 
-  // Retrieve bot instance from event context
-  dpp::cluster* bot = event.from->creator;
+dpp::task<void> handle_kick_command(const dpp::slashcommand_t& event) {
+    try {
+        event.thinking();
 
-  // Fetch target user's details
-  bot->user_get(user_id, [event, bot, user_id](const dpp::confirmation_callback_t& callback) {
-    if (callback.is_error()) {
-      event.reply("Failed to retrieve user details.");
-      return;
-    }
+        dpp::snowflake user_id = std::get<dpp::snowflake>(event.get_parameter("user"));
+        dpp::cluster* bot = event.from->creator;
 
-    // Extract user details if successful
-    dpp::user_identified target_user = std::get<dpp::user_identified>(callback.value);
-    std::string user_pfp = target_user.get_avatar_url();
-    std::string moderator_pfp = event.command.usr.get_avatar_url();
+        auto user_identified = co_await bot->co_user_get(user_id);
 
-    // Create embed for moderation message
-    dpp::embed mod_embed = EmbedUtils::create_basic_embed("User " + target_user.username + " was Kicked", "goof ball got the kick treatment", 0xFFA500, user_pfp);
-    mod_embed.add_field("Moderator", event.command.usr.username);
-
-    // Get guild ID from event context
-    dpp::snowflake guild_id = event.command.guild_id;
-
-    // Perform kick operation
-    bot->guild_member_kick(guild_id, user_id, [event, mod_embed, bot](const dpp::confirmation_callback_t& kick_callback) {
-        if (kick_callback.is_error()) {
-            event.reply("Failed to kick the user.");
-        } else {
-            // Send embed to moderator channel
-            dpp::message mod_message;
-            mod_message.set_channel_id(1070176260891889725); // Private channel ID
-            mod_message.add_embed(mod_embed);
-
-            bot->message_create(mod_message, [event](const dpp::confirmation_callback_t& mod_callback) {
-                if (mod_callback.is_error()) {
-                    event.reply("Failed to send mod message.");
-                } else {
-                    // Reply to the user who initiated the command
-                    event.reply("User has been kicked.");
-                }
-            });
+        if (user_identified.is_error()) {
+            event.co_edit_response("User not found");
+            co_return;
         }
-    });
 
+        dpp::user_identified target_user = std::get<dpp::user_identified>(user_identified.value);
+        dpp::user moderator = event.command.usr;
 
+        std::string target_pfp = target_user.get_avatar_url();
+        std::string moderator_pfp = moderator.get_avatar_url();
 
+        dpp::embed __embed__ = EmbedUtils::create_basic_embed("User " + target_user.username + " was Kicked", "Goof got the boot", 0xFF0000, target_pfp);
+        __embed__.add_field("Moderator", moderator.username, true);
 
-  });
+        dpp::message __message__;
+        __message__.set_channel_id(1070176260891889725);
+        __message__.add_embed(__embed__);
+
+        auto mod_message_result = co_await bot->co_message_create(__message__);
+        auto kick_result = co_await bot->co_guild_member_kick(event.command.guild_id, user_id);
+
+        if (kick_result.is_error()) {
+            event.co_edit_response("Failed to kick the user");
+            co_return;
+        }
+
+        if (mod_message_result.is_error()) {
+            event.co_edit_response("Couldn't send embed to mod channel");
+            std::cerr << "Failed to send embed to private mod channel\n";
+            co_return;
+        }
+
+        event.edit_response("User successfully kicked.");
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        event.co_edit_response("An error occurred while processing the command.");
+    }
 }
+

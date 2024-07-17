@@ -7,13 +7,6 @@
 
 dpp::task<void> handle_mute_command(const dpp::slashcommand_t& event) {
     event.thinking();
-
-    // Check if the 'user' and 'duration' parameters exist
-    if (event.get_parameter("user").index() == std::variant_npos || event.get_parameter("duration").index() == std::variant_npos) {
-        event.reply("Please mention a user to mute and specify the duration.");
-        co_return;
-    }
-
     // Extract user ID and duration from parameters
     dpp::snowflake user_id = std::get<dpp::snowflake>(event.get_parameter("user"));
     int64_t duration_minutes = std::get<int64_t>(event.get_parameter("duration"));

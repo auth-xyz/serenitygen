@@ -1,7 +1,7 @@
 #include "../headers/commands/embed.hpp"
 #include <iostream>
 
-void handle_embed_command(const dpp::slashcommand_t& event) {
+dpp::task<void> handle_embed_command(const dpp::slashcommand_t& event) {
   dpp::embed embed = dpp::embed()
     .set_title("pppp")
     .set_author("Auth", "https://auth-xyz.github.io/", "https://auth-xyz.github.io/favicon.ico")
@@ -11,5 +11,7 @@ void handle_embed_command(const dpp::slashcommand_t& event) {
   std::cout << event.from << std::endl;
 
   event.reply(dpp::message().add_embed(embed));
+
+  co_return; 
 }
 
