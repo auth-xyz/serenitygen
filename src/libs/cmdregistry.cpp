@@ -9,11 +9,12 @@ void CommandRegistry::register_command(const std::string& name, const CommandHan
     commands[name] = handler;
 }
 
-void CommandRegistry::handle_command(const dpp::slashcommand_t& event) const {
+dpp::task<void> CommandRegistry::handle_command(const dpp::slashcommand_t& event) const {
     auto it = commands.find(event.command.get_command_name());
     if (it != commands.end()) {
-        it->second(event);
+        co_await it->second(event);
     } else {
-        event.reply("Unknown command!");
+        event.co_reply("Unknown command!");
     }
 }
+

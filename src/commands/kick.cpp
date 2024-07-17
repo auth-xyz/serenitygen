@@ -50,9 +50,11 @@ dpp::task<void> handle_kick_command(const dpp::slashcommand_t& event) {
         }
 
         event.edit_response("User successfully kicked.");
+        co_return;
     } catch (const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
         event.co_edit_response("An error occurred while processing the command.");
+        co_return;
     }
 }
 

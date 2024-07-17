@@ -37,22 +37,22 @@ int main() {
   dpp::cluster bot(BOT_TOKEN);
   bot.on_log(dpp::utility::cout_logger());
 
-  CommandRegistry cmd_reg;
-  cmd_reg.register_command("embed", handle_embed_command);
-  cmd_reg.register_command("ban", handle_ban_command);
-  cmd_reg.register_command("unban", handle_unban_command);
-  cmd_reg.register_command("kick", handle_kick_command);
-  cmd_reg.register_command("mute", handle_mute_command);
-  cmd_reg.register_command("unmute", handle_unmute_command);
+  CommandRegistry registry;
+  registry.register_command("embed", handle_embed_command);
+  registry.register_command("ban", handle_ban_command);
+  registry.register_command("unban", handle_unban_command);
+  registry.register_command("kick", handle_kick_command);
+  registry.register_command("mute", handle_mute_command);
+  registry.register_command("unmute", handle_unmute_command);
 
   // Define coroutine for slash command handling
-  auto handle_slashcommand = [&cmd_reg](const dpp::slashcommand_t& event){
+  auto handle_slashcommand = [&registry](const dpp::slashcommand_t& event){
     std::string command_name = event.command.get_command_name();
     std::string username = event.command.usr.username;
 
     log_message(username, "used " + command_name + " command");
 
-    cmd_reg.handle_command(event);
+    registry.handle_command(event);
   };
 
   bot.on_slashcommand(handle_slashcommand);
@@ -89,7 +89,6 @@ int main() {
   };
 
   bot.on_ready(handle_ready);
-
   bot.start(dpp::st_wait);
 }
 
