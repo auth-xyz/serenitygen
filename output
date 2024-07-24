@@ -1,0 +1,303 @@
+❯ make > output
+src/commands/mute.cpp: In function ‘dpp::task<void> handle_mute_command(const dpp::slashcommand_t&)’:
+src/commands/mute.cpp:29:58: error: ‘user_dentified’ is not a member of ‘dpp’; did you mean ‘user_identified’?
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                                          ^~~~~~~~~~~~~~
+      |                                                          user_identified
+src/commands/mute.cpp:29:73: error: no matching function for call to ‘get<<expression error> >(dpp::confirmable_t
+&)’
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/14/bits/stl_algobase.h:64,
+                 from /usr/include/c++/14/string:51,
+                 from /usr/local/include/dpp/dpp.h:25,
+                 from src/commands/../headers/commands/mute.hpp:2,
+                 from src/commands/mute.cpp:1:
+/usr/include/c++/14/bits/stl_pair.h:1250:5: note: candidate: ‘template<long unsigned int _Int, class _Tp1, class
+_Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(pair<_Tp1, _Tp2>&)’
+ 1250 |     get(pair<_Tp1, _Tp2>& __in) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1250:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1255:5: note: candidate: ‘template<long unsigned int _Int, class _Tp1, class
+_Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(pair<_Tp1, _Tp2>&&)’
+ 1255 |     get(pair<_Tp1, _Tp2>&& __in) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1255:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1260:5: note: candidate: ‘template<long unsigned int _Int, class _Tp1, class
+_Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const pair<_Tp1,
+_Tp2>&)’
+ 1260 |     get(const pair<_Tp1, _Tp2>& __in) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1260:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1265:5: note: candidate: ‘template<long unsigned int _Int, class _Tp1, class
+_Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(const pair<_Tp1,
+ _Tp2>&&)’
+ 1265 |     get(const pair<_Tp1, _Tp2>&& __in) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1265:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/14/bits/uses_allocator_args.h:39,
+                 from /usr/include/c++/14/bits/memory_resource.h:41,
+                 from /usr/include/c++/14/string:67:
+/usr/include/c++/14/tuple:2443:5: note: candidate: ‘template<long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >& std::get(tuple<_Elements ...>&)’
+ 2443 |     get(tuple<_Elements...>& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2443:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2449:5: note: candidate: ‘template<long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >& std::get(const tuple<_Elements ...>&)’
+ 2449 |     get(const tuple<_Elements...>& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2449:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2455:5: note: candidate: ‘template<long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >&& std::get(tuple<_Elements ...>&&)’
+ 2455 |     get(tuple<_Elements...>&& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2455:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2464:5: note: candidate: ‘template<long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >&& std::get(const tuple<_Elements ...>&&)’
+ 2464 |     get(const tuple<_Elements...>&& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2464:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/14/functional:65,
+                 from /usr/local/include/dpp/dpp.h:34:
+/usr/include/c++/14/array:390:5: note: candidate: ‘template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(array<_Tp, _Nm>&)’
+  390 |     get(array<_Tp, _Nm>& __arr) noexcept
+      |     ^~~
+/usr/include/c++/14/array:390:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/array:399:5: note: candidate: ‘template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(array<_Tp, _Nm>&&)’
+  399 |     get(array<_Tp, _Nm>&& __arr) noexcept
+      |     ^~~
+/usr/include/c++/14/array:399:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/array:408:5: note: candidate: ‘template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const array<_Tp, _Nm>&)’
+  408 |     get(const array<_Tp, _Nm>& __arr) noexcept
+      |     ^~~
+/usr/include/c++/14/array:408:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/array:417:5: note: candidate: ‘template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp&& std::get(const array<_Tp, _Nm>&&)’
+  417 |     get(const array<_Tp, _Nm>&& __arr) noexcept
+      |     ^~~
+/usr/include/c++/14/array:417:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1272:5: note: candidate: ‘template<class _Tp, class _Up> constexpr _Tp& std::get(pair<_T1, _T2>&)’
+ 1272 |     get(pair<_Tp, _Up>& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1272:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1277:5: note: candidate: ‘template<class _Tp, class _Up> constexpr const _Tp& std::get(const pair<_T1, _T2>&)’
+ 1277 |     get(const pair<_Tp, _Up>& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1277:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1282:5: note: candidate: ‘template<class _Tp, class _Up> constexpr _Tp&& std::get(pair<_T1, _T2>&&)’
+ 1282 |     get(pair<_Tp, _Up>&& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1282:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1287:5: note: candidate: ‘template<class _Tp, class _Up> constexpr const _Tp&& std::get(const pair<_T1, _T2>&&)’
+ 1287 |     get(const pair<_Tp, _Up>&& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1287:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1292:5: note: candidate: ‘template<class _Tp, class _Up> constexpr _Tp& std::get(pair<_Up, _Tp>&)’
+ 1292 |     get(pair<_Up, _Tp>& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1292:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1297:5: note: candidate: ‘template<class _Tp, class _Up> constexpr const _Tp& std::get(const pair<_Up, _Tp>&)’
+ 1297 |     get(const pair<_Up, _Tp>& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1297:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1302:5: note: candidate: ‘template<class _Tp, class _Up> constexpr _Tp&& std::get(pair<_Up, _Tp>&&)’
+ 1302 |     get(pair<_Up, _Tp>&& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1302:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_pair.h:1307:5: note: candidate: ‘template<class _Tp, class _Up> constexpr const _Tp&& std::get(const pair<_Up, _Tp>&&)’
+ 1307 |     get(const pair<_Up, _Tp>&& __p) noexcept
+      |     ^~~
+/usr/include/c++/14/bits/stl_pair.h:1307:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/14/tuple:44:
+/usr/include/c++/14/bits/ranges_util.h:455:5: note: candidate: ‘template<long unsigned int _Num, class _It, class _Sent, std::ranges::subrange_kind _Kind>  requires  _Num < 2 constexpr auto std::ranges::get(subrange<_It, _Sent, _Kind>&&)’
+  455 |     get(subrange<_It, _Sent, _Kind>&& __r)
+      |     ^~~
+/usr/include/c++/14/bits/ranges_util.h:455:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/ranges_util.h:444:5: note: candidate: ‘template<long unsigned int _Num, class _It, class _Sent, std::ranges::subrange_kind _Kind>  requires  _Num < 2 constexpr auto std::ranges::get(const subrange<_It, _Sent, _Kind>&)’
+  444 |     get(const subrange<_It, _Sent, _Kind>& __r)
+      |     ^~~
+/usr/include/c++/14/bits/ranges_util.h:444:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2474:5: note: candidate: ‘template<long unsigned int __i, class ... _Elements> constexpr std::__enable_if_t<(__i >= sizeof... (_Types))> std::get(const tuple<_Elements ...>&)’ (deleted)
+ 2474 |     get(const tuple<_Elements...>&) = delete;
+      |     ^~~
+/usr/include/c++/14/tuple:2474:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2481:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr _Tp& std::get(tuple<_Elements ...>&)’
+ 2481 |     get(tuple<_Types...>& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2481:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2492:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr _Tp&& std::get(tuple<_Elements ...>&&)’
+ 2492 |     get(tuple<_Types...>&& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2492:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2503:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const tuple<_Elements ...>&)’
+ 2503 |     get(const tuple<_Types...>& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2503:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/tuple:2515:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr const _Tp&& std::get(const tuple<_Elements ...>&&)’
+ 2515 |     get(const tuple<_Types...>&& __t) noexcept
+      |     ^~~
+/usr/include/c++/14/tuple:2515:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/local/include/dpp/utility.h:32,
+                 from /usr/local/include/dpp/dpp.h:40:
+/usr/include/c++/14/variant:1712:5: note: candidate: ‘template<long unsigned int _Np, class ... _Types> constexpr std::variant_alternative_t<_Np, std::variant<_Types ...> >& std::get(variant<_Types ...>&)’
+ 1712 |     get(variant<_Types...>& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1712:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1723:5: note: candidate: ‘template<long unsigned int _Np, class ... _Types> constexpr std::variant_alternative_t<_Np, std::variant<_Types ...> >&& std::get(variant<_Types ...>&&)’
+ 1723 |     get(variant<_Types...>&& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1723:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1734:5: note: candidate: ‘template<long unsigned int _Np, class ... _Types> constexpr std::variant_alternative_t<_Np, std::variant<_Types ...> >& std::get(const variant<_Types ...>&)’
+ 1734 |     get(const variant<_Types...>& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1734:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1745:5: note: candidate: ‘template<long unsigned int _Np, class ... _Types> constexpr std::variant_alternative_t<_Np, std::variant<_Types ...> >&& std::get(const variant<_Types ...>&&)’
+ 1745 |     get(const variant<_Types...>&& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1745:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1150:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr _Tp& std::get(variant<_Types ...>&)’
+ 1150 |     get(variant<_Types...>& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1150:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1160:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr _Tp&& std::get(variant<_Types ...>&&)’
+ 1160 |     get(variant<_Types...>&& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1160:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1170:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const variant<_Types ...>&)’
+ 1170 |     get(const variant<_Types...>& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1170:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/variant:1180:5: note: candidate: ‘template<class _Tp, class ... _Types> constexpr const _Tp&& std::get(const variant<_Types ...>&&)’
+ 1180 |     get(const variant<_Types...>&& __v)
+      |     ^~~
+/usr/include/c++/14/variant:1180:5: note:   template argument deduction/substitution failed:
+src/commands/mute.cpp:29:73: error: template argument 1 is invalid
+   29 |         dpp::user_identified target_user = std::get<dpp::user_dentified>(user_identified.value);
+      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+src/commands/mute.cpp:44:20: error: ‘e’ was not declared in this scope; did you mean ‘std::numbers::e’?
+   44 |             printf(e.what());
+      |                    ^
+      |                    std::numbers::e
+In file included from /usr/include/c++/14/bits/max_size_type.h:37,
+                 from /usr/include/c++/14/bits/ranges_base.h:39,
+                 from /usr/include/c++/14/string_view:56,
+                 from /usr/include/c++/14/bits/basic_string.h:47,
+                 from /usr/include/c++/14/string:54:
+/usr/include/c++/14/numbers:124:27: note: ‘std::numbers::e’ declared here
+  124 |   inline constexpr double e = e_v<double>;
+      |                           ^
+src/commands/mute.cpp:53:13: error: expected ‘,’ or ‘;’ before ‘auto’
+   53 |             auto error_msg = co_await bot->co_message_create(dpp::message().add_embed(p));
+      |             ^~~~
+src/commands/mute.cpp:54:20: error: ‘e’ was not declared in this scope; did you mean ‘std::numbers::e’?
+   54 |             printf(e.what());
+      |                    ^
+      |                    std::numbers::e
+/usr/include/c++/14/numbers:124:27: note: ‘std::numbers::e’ declared here
+  124 |   inline constexpr double e = e_v<double>;
+      |                           ^
+src/commands/mute.cpp:58:13: error: ‘co_reply’ was not declared in this scope
+   58 |             co_reply("User muted");
+      |             ^~~~~~~~
+src/commands/mute.cpp:65:26: error: await expressions are not permitted in handlers
+   65 |         auto error_msg = co_await bot->co_message_create(dpp::message().add_embed(__errem__));
+      |                          ^~~~~~~~
+2make: *** [Makefile:42: build/commands/mute.o] Error 1
