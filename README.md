@@ -8,7 +8,7 @@
 ## Project setup
 
 #### Prerequisites
-- [dpp](https://dpp.dev)
+- [dpp](https://dpp.dev) (with `-DDPP_CORO=on`)
 - [preferably a brain](https://en.wikipedia.org/wiki/Brain)
 - [a discord.dev applicaiton](https://discord.dev)
 
